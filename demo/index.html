@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraTab - 极致轻量浏览器起始页</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 顶部搜索栏 -->
+    <header class="search-header">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="请输入搜索关键词...">
+            <select id="search-engine">
+                <option value="baidu">百度</option>
+                <option value="google">谷歌</option>
+                <option value="bing">必应</option>
+                <option value="duckduckgo">DuckDuckGo</option>
+            </select>
+            <button id="search-btn">搜索</button>
+        </div>
+        
+        <!-- 同步状态指示器 -->
+        <div class="sync-status" id="sync-status">
+            <span id="status-text">本地数据</span>
+            <button id="sync-btn">同步</button>
+            <button id="settings-btn">设置</button>
+        </div>
+    </header>
+
+    <!-- 主体内容 -->
+    <div class="main-container">
+        <!-- 左侧收藏夹列表 -->
+        <aside class="sidebar">
+            <div class="folder-actions">
+                <button id="add-folder-btn" class="btn-primary">+ 新建收藏夹</button>
+            </div>
+            <div class="folder-list" id="folder-list">
+                <div class="folder-item active" data-folder="basic-bookmarks">
+                    <span class="folder-icon">📁</span>
+                    <span class="folder-name">基础收藏夹</span>
+                    <span class="folder-actions">
+                        <button class="edit-btn">✏️</button>
+                        <button class="delete-btn">🗑️</button>
+                    </span>
+                </div>
+                <div class="folder-item" data-folder="work">
+                    <span class="folder-icon">💼</span>
+                    <span class="folder-name">工作相关</span>
+                    <span class="folder-actions">
+                        <button class="edit-btn">✏️</button>
+                        <button class="delete-btn">🗑️</button>
+                    </span>
+                </div>
+                <div class="folder-item" data-folder="study">
+                    <span class="folder-icon">📚</span>
+                    <span class="folder-name">学习资源</span>
+                    <span class="folder-actions">
+                        <button class="edit-btn">✏️</button>
+                        <button class="delete-btn">🗑️</button>
+                    </span>
+                </div>
+                <div class="folder-item" data-folder="entertainment">
+                    <span class="folder-icon">🎮</span>
+                    <span class="folder-name">娱乐休闲</span>
+                    <span class="folder-actions">
+                        <button class="edit-btn">✏️</button>
+                        <button class="delete-btn">🗑️</button>
+                    </span>
+                </div>
+                <div class="folder-item" data-folder="tools">
+                    <span class="folder-icon">🛠️</span>
+                    <span class="folder-name">实用工具</span>
+                    <span class="folder-actions">
+                        <button class="edit-btn">✏️</button>
+                        <button class="delete-btn">🗑️</button>
+                    </span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧内容区域 -->
+        <main class="content-area">
+            <div class="bookmark-actions">
+                <button id="add-bookmark-btn" class="btn-primary">+ 添加书签</button>
+            </div>
+            
+            <div class="bookmark-section" id="basic-bookmarks-content">
+                <h2>基础收藏夹</h2>
+                <div class="bookmark-grid">
+                    <div class="bookmark-item">
+                        <a href="https://www.baidu.com" target="_blank">
+                            <img src="https://www.baidu.com/favicon.ico" alt="百度" class="bookmark-icon">
+                            <span class="bookmark-title">百度</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.google.com" target="_blank">
+                            <img src="https://www.google.com/favicon.ico" alt="谷歌" class="bookmark-icon">
+                            <span class="bookmark-title">谷歌</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.github.com" target="_blank">
+                            <img src="https://github.com/favicon.ico" alt="GitHub" class="bookmark-icon">
+                            <span class="bookmark-title">GitHub</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.stackoverflow.com" target="_blank">
+                            <img src="https://stackoverflow.com/favicon.ico" alt="Stack Overflow" class="bookmark-icon">
+                            <span class="bookmark-title">Stack Overflow</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.zhihu.com" target="_blank">
+                            <img src="https://www.zhihu.com/favicon.ico" alt="知乎" class="bookmark-icon">
+                            <span class="bookmark-title">知乎</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.jianshu.com" target="_blank">
+                            <img src="https://www.jianshu.com/favicon.ico" alt="简书" class="bookmark-icon">
+                            <span class="bookmark-title">简书</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bookmark-section hidden" id="work-content">
+                <h2>工作相关</h2>
+                <div class="bookmark-grid">
+                    <div class="bookmark-item">
+                        <a href="https://www.office.com" target="_blank">
+                            <img src="https://www.office.com/favicon.ico" alt="Office" class="bookmark-icon">
+                            <span class="bookmark-title">Office</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.slack.com" target="_blank">
+                            <img src="https://slack.com/favicon.ico" alt="Slack" class="bookmark-icon">
+                            <span class="bookmark-title">Slack</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.zoom.us" target="_blank">
+                            <img src="https://zoom.us/favicon.ico" alt="Zoom" class="bookmark-icon">
+                            <span class="bookmark-title">Zoom</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.tencent.com" target="_blank">
+                            <img src="https://www.tencent.com/favicon.ico" alt="腾讯" class="bookmark-icon">
+                            <span class="bookmark-title">腾讯</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bookmark-section hidden" id="study-content">
+                <h2>学习资源</h2>
+                <div class="bookmark-grid">
+                    <div class="bookmark-item">
+                        <a href="https://www.coursera.org" target="_blank">
+                            <img src="https://www.coursera.org/favicon.ico" alt="Coursera" class="bookmark-icon">
+                            <span class="bookmark-title">Coursera</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.udemy.com" target="_blank">
+                            <img src="https://www.udemy.com/favicon.ico" alt="Udemy" class="bookmark-icon">
+                            <span class="bookmark-title">Udemy</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.runoob.com" target="_blank">
+                            <img src="https://static.runoob.com/images/favicon.ico" alt="菜鸟教程" class="bookmark-icon">
+                            <span class="bookmark-title">菜鸟教程</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://wangdoc.com" target="_blank">
+                            <img src="https://wangdoc.com/javascript/engine/images/favicon.ico" alt="阮一峰教程" class="bookmark-icon">
+                            <span class="bookmark-title">阮一峰教程</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bookmark-section hidden" id="entertainment-content">
+                <h2>娱乐休闲</h2>
+                <div class="bookmark-grid">
+                    <div class="bookmark-item">
+                        <a href="https://www.bilibili.com" target="_blank">
+                            <img src="https://www.bilibili.com/favicon.ico" alt="Bilibili" class="bookmark-icon">
+                            <span class="bookmark-title">Bilibili</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.youtube.com" target="_blank">
+                            <img src="https://www.youtube.com/favicon.ico" alt="YouTube" class="bookmark-icon">
+                            <span class="bookmark-title">YouTube</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.netflix.com" target="_blank">
+                            <img src="https://www.netflix.com/favicon.ico" alt="Netflix" class="bookmark-icon">
+                            <span class="bookmark-title">Netflix</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.gamepress.gg" target="_blank">
+                            <img src="https://www.gamepress.gg/favicon.ico" alt="GamePress" class="bookmark-icon">
+                            <span class="bookmark-title">GamePress</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bookmark-section hidden" id="tools-content">
+                <h2>实用工具</h2>
+                <div class="bookmark-grid">
+                    <div class="bookmark-item">
+                        <a href="https://www.processon.com" target="_blank">
+                            <img src="https://www.processon.com/favicon.ico" alt="ProcessOn" class="bookmark-icon">
+                            <span class="bookmark-title">ProcessOn</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.iconfont.cn" target="_blank">
+                            <img src="https://www.iconfont.cn/favicon.ico" alt="IconFont" class="bookmark-icon">
+                            <span class="bookmark-title">IconFont</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://tinypng.com" target="_blank">
+                            <img src="https://tinypng.com/favicon.ico" alt="TinyPNG" class="bookmark-icon">
+                            <span class="bookmark-title">TinyPNG</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="bookmark-item">
+                        <a href="https://www.aconvert.com" target="_blank">
+                            <img src="https://www.aconvert.com/favicon.ico" alt="AConvert" class="bookmark-icon">
+                            <span class="bookmark-title">AConvert</span>
+                        </a>
+                        <div class="bookmark-actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- WebDAV设置模态框 -->
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>WebDAV 同步设置</h3>
+                <span class="close" id="close-settings">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="webdav-form">
+                    <div class="form-group">
+                        <label for="webdav-url">WebDAV 地址:</label>
+                        <input type="url" id="webdav-url" placeholder="例如: https://dav.jianguoyun.com/dav/" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="webdav-username">用户名:</label>
+                        <input type="text" id="webdav-username" placeholder="您的WebDAV用户名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="webdav-password">密码:</label>
+                        <input type="password" id="webdav-password" placeholder="您的WebDAV密码" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="config-file">配置文件名:</label>
+                        <input type="text" id="config-file" value="auratab-config.json" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="test-connection" class="btn-secondary">测试连接</button>
+                        <button type="submit" class="btn-primary">保存设置</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加书签模态框 -->
+    <div class="modal" id="add-bookmark-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>添加书签</h3>
+                <span class="close" id="close-bookmark">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="bookmark-form">
+                    <div class="form-group">
+                        <label for="bookmark-title">标题:</label>
+                        <input type="text" id="bookmark-title" placeholder="书签标题" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookmark-url">网址:</label>
+                        <input type="url" id="bookmark-url" placeholder="https://example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookmark-desc">描述:</label>
+                        <input type="text" id="bookmark-desc" placeholder="书签描述">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookmark-folder">收藏夹:</label>
+                        <select id="bookmark-folder">
+                            <option value="basic-bookmarks">基础收藏夹</option>
+                            <option value="work">工作相关</option>
+                            <option value="study">学习资源</option>
+                            <option value="entertainment">娱乐休闲</option>
+                            <option value="tools">实用工具</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">添加书签</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
