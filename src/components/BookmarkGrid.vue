@@ -48,9 +48,9 @@ const appStore = useAppStore()
 <style scoped>
 .content-area {
   flex: 1;
-  padding: 20px;
+  padding: 28px 32px;
   overflow-y: auto;
-  background-color: #fafafa;
+  background: var(--color-bg);
   min-height: 500px;
   display: flex;
   flex-direction: column;
@@ -60,46 +60,55 @@ const appStore = useAppStore()
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .content-header h2 {
-  color: #333;
-  font-size: 24px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #4285f4;
+  color: var(--color-text);
+  font-size: 22px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .btn-primary {
-  padding: 8px 15px;
-  background-color: #4285f4;
+  padding: 10px 18px;
+  background: var(--color-primary-gradient);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s;
+  font-weight: 500;
+  font-family: inherit;
+  transition: var(--transition-normal);
+  box-shadow: 0 2px 8px rgba(124, 111, 234, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: #3367d6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(124, 111, 234, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .bookmark-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
 }
 
 .bookmark-item {
-  background-color: white;
-  border-radius: 8px;
-  padding: 15px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 20px 16px;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,8 +117,9 @@ const appStore = useAppStore()
 }
 
 .bookmark-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border);
 }
 
 .bookmark-item a {
@@ -126,17 +136,18 @@ const appStore = useAppStore()
 .bookmark-icon {
   width: 48px;
   height: 48px;
-  margin-bottom: 10px;
-  border-radius: 8px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-md);
   object-fit: contain;
-  background-color: white;
-  padding: 4px;
-  border: 1px solid #eee;
+  background: var(--color-bg-warm);
+  padding: 6px;
+  border: 1px solid var(--color-border-light);
 }
 
 .bookmark-title {
-  font-size: 14px;
-  color: #333;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
   word-break: break-word;
   text-align: center;
   line-height: 1.4;
@@ -144,7 +155,7 @@ const appStore = useAppStore()
 
 .bookmark-item-actions {
   display: none;
-  gap: 5px;
+  gap: 4px;
   margin-top: 10px;
   justify-content: center;
 }
@@ -156,14 +167,15 @@ const appStore = useAppStore()
 .action-btn {
   background: none;
   border: none;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
-  padding: 2px 5px;
-  border-radius: 3px;
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
 }
 
 .action-btn:hover {
-  background-color: #e9ecef;
+  background: rgba(124, 111, 234, 0.1);
 }
 
 .empty-state {
@@ -171,19 +183,20 @@ const appStore = useAppStore()
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
-  font-size: 16px;
+  color: var(--color-text-muted);
+  font-size: 15px;
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {
   .content-area {
     min-height: auto;
-    padding: 15px;
+    padding: 16px;
   }
 
   .bookmark-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+    gap: 14px;
   }
 
   .bookmark-icon {
@@ -193,7 +206,7 @@ const appStore = useAppStore()
 
   .bookmark-item {
     min-height: 120px;
-    padding: 12px;
+    padding: 14px 12px;
   }
 }
 </style>

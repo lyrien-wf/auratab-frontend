@@ -47,63 +47,73 @@ const hoveredFolder = ref<string | null>(null)
 
 <style scoped>
 .sidebar {
-  width: 300px;
-  background-color: white;
-  border-right: 1px solid #eee;
+  width: 280px;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border-light);
   overflow-y: auto;
   padding: 20px 0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
 }
 
 .sidebar-actions {
-  padding: 0 20px 15px;
+  padding: 0 16px 16px;
 }
 
 .btn-primary {
-  padding: 8px 15px;
-  background-color: #4285f4;
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--color-primary-gradient);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s;
+  font-weight: 500;
+  font-family: inherit;
+  transition: var(--transition-normal);
+  box-shadow: 0 2px 8px rgba(124, 111, 234, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: #3367d6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(124, 111, 234, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .folder-list {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 2px;
   flex: 1;
+  padding: 0 8px;
 }
 
 .folder-item {
-  padding: 12px 20px;
+  padding: 11px 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: all 0.3s;
-  border-left: 4px solid transparent;
+  transition: var(--transition-normal);
+  border-radius: var(--radius-md);
   position: relative;
+  color: var(--color-text-secondary);
 }
 
 .folder-item:hover {
-  background-color: #f8f9fa;
+  background: var(--color-surface-hover);
+  color: var(--color-text);
 }
 
 .folder-item.active {
-  background-color: #e8f0fe;
-  border-left: 4px solid #4285f4;
-  color: #4285f4;
-  font-weight: bold;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 .folder-icon {
@@ -112,13 +122,14 @@ const hoveredFolder = ref<string | null>(null)
 
 .folder-name {
   flex: 1;
+  font-size: 14px;
 }
 
 .folder-item-actions {
   display: none;
-  gap: 5px;
+  gap: 4px;
   cursor: pointer;
-  color: #aaa;
+  color: var(--color-text-muted);
 }
 
 .folder-item:hover .folder-item-actions {
@@ -128,14 +139,15 @@ const hoveredFolder = ref<string | null>(null)
 .action-btn {
   background: none;
   border: none;
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
-  padding: 2px 5px;
-  border-radius: 3px;
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
 }
 
 .action-btn:hover {
-  background-color: #e9ecef;
+  background: rgba(124, 111, 234, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -143,7 +155,7 @@ const hoveredFolder = ref<string | null>(null)
     width: 100%;
     max-height: 200px;
     border-right: none;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border-light);
   }
 }
 </style>

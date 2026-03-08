@@ -37,9 +37,12 @@ const appStore = useAppStore()
 
 <style scoped>
 .search-header {
-  background-color: white;
-  padding: 15px 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 16px 24px;
+  box-shadow: 0 1px 12px rgba(124, 111, 234, 0.06);
+  border-bottom: 1px solid var(--color-border-light);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -55,76 +58,114 @@ const appStore = useAppStore()
 
 .search-input {
   flex: 1;
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 25px;
-  font-size: 16px;
+  padding: 12px 20px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: 15px;
   outline: none;
-  transition: border-color 0.3s;
+  background: var(--color-bg-warm);
+  color: var(--color-text);
+  transition: var(--transition-normal);
+  font-family: inherit;
+}
+
+.search-input::placeholder {
+  color: var(--color-text-muted);
 }
 
 .search-input:focus {
-  border-color: #4285f4;
+  border-color: var(--color-primary);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 3px rgba(124, 111, 234, 0.12);
 }
 
 .search-engine {
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: white;
+  padding: 12px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-warm);
+  color: var(--color-text);
   font-size: 14px;
+  font-family: inherit;
   outline: none;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237c7394' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.search-engine:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(124, 111, 234, 0.12);
 }
 
 .search-btn {
-  padding: 12px 20px;
-  background-color: #4285f4;
+  padding: 12px 22px;
+  background: var(--color-primary-gradient);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: var(--transition-normal);
+  box-shadow: 0 2px 8px rgba(124, 111, 234, 0.25);
 }
 
 .search-btn:hover {
-  background-color: #3367d6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(124, 111, 234, 0.35);
+}
+
+.search-btn:active {
+  transform: translateY(0);
 }
 
 .sync-status {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .status-text {
-  font-size: 14px;
-  color: #666;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  font-weight: 400;
 }
 
 .sync-btn,
 .settings-btn {
-  padding: 8px 12px;
-  background-color: #5c6bc0;
-  color: white;
-  border: none;
-  border-radius: 4px;
+  padding: 8px 14px;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: var(--transition-normal);
 }
 
 .sync-btn:hover,
 .settings-btn:hover {
-  background-color: #3f51b5;
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
 }
 
 @media (max-width: 768px) {
   .sync-status {
     position: static;
+    transform: none;
     justify-content: flex-end;
     margin-top: 10px;
   }

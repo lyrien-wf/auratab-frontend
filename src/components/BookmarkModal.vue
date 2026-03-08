@@ -99,37 +99,39 @@ const handleSubmit = () => {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(59, 53, 87, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   align-items: center;
   justify-content: center;
 }
 
 .modal-content {
-  background-color: white;
+  background: var(--color-surface);
   padding: 0;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   width: 90%;
-  max-width: 500px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  animation: modalopen 0.4s;
+  max-width: 480px;
+  box-shadow: var(--shadow-xl);
+  animation: modalopen 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   max-height: 90vh;
   overflow-y: auto;
+  border: 1px solid var(--color-border-light);
 }
 
 @keyframes modalopen {
   from {
     opacity: 0;
-    transform: translateY(-60px);
+    transform: scale(0.95) translateY(-10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1) translateY(0);
   }
 }
 
 .modal-header {
-  padding: 20px;
-  border-bottom: 1px solid #eee;
+  padding: 24px 24px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -137,64 +139,94 @@ const handleSubmit = () => {
 
 .modal-header h3 {
   margin: 0;
-  color: #333;
+  color: var(--color-text);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .close-btn {
-  font-size: 28px;
-  font-weight: bold;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
   cursor: pointer;
-  color: #aaa;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
 }
 
 .close-btn:hover {
-  color: #000;
+  background: var(--color-surface-hover);
+  color: var(--color-text);
 }
 
 .modal-body {
-  padding: 20px;
+  padding: 0 24px 24px;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-text-secondary);
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
+  padding: 11px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-bg-warm);
   box-sizing: border-box;
+  outline: none;
+  transition: var(--transition-normal);
+}
+
+.form-group input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-primary);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 3px rgba(124, 111, 234, 0.12);
 }
 
 .form-actions {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .btn-primary {
-  padding: 8px 15px;
-  background-color: #4285f4;
+  padding: 10px 20px;
+  background: var(--color-primary-gradient);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s;
+  font-weight: 500;
+  font-family: inherit;
+  transition: var(--transition-normal);
+  box-shadow: 0 2px 8px rgba(124, 111, 234, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: #3367d6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(124, 111, 234, 0.3);
 }
 </style>
